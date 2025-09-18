@@ -18,6 +18,17 @@ public class ChatRMIClient {
 
         IChat chat = (IChat) registry.lookup("rmi://localhost:" + port + "/chat");
 
+        System.out.println("Bem vindo! Por favor, faça o login.");
+        System.out.print("Usuário: ");
+        String usuario = scanner.nextLine();
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        if (!chat.autenticar(usuario, senha)) {
+            System.out.println("Autenticação falhou. Encerrando aplicação.");
+            System.exit(0);
+        }
+
         System.out.println("""
                 Olá! Bem-vindo ao Chat RMI.
                 1 - Enviar mensagem

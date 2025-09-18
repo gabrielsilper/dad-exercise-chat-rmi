@@ -8,4 +8,6 @@ public interface IChat extends Remote {
     void enviarMensagem(String mensagem) throws RemoteException;
 
     List<String> receberMensagens() throws RemoteException;
+
+    boolean autenticar(String usuario, String senha) throws RemoteException;
 }
